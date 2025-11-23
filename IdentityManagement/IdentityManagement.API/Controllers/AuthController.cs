@@ -100,6 +100,7 @@ public class AuthController : ControllerBase
     // Post /api/login
     [HttpPost("login")]
     public async Task<ActionResult<AuthResponseDto>> Login([FromBody] LoginDto model)
+
     {
         if (!ModelState.IsValid)
         {
@@ -151,6 +152,69 @@ public class AuthController : ControllerBase
             UserId = user.Id,
             Email = user.Email,
             UserName = user.UserName
+        });
+    }
+
+    [Authorize]
+    [HttpPost("logout")]
+    public async Task<ActionResult<AuthResponseDto>> Logout()
+    {
+        await _signInManager.SignOutAsync();
+        _logger.LogInformation("User logged out");
+        return Ok(new AuthResponseDto
+        {
+            Success = true,
+            Message = "Logout successful"
+        });
+    }
+
+    [Authorize]
+    [HttpPost("change-password")]
+    public async Task<ActionResult<AuthResponseDto>> ChangePassword([FromBody]
+ChangePasswordDto model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(new AuthResponseDto
+            {
+                Success = false,
+                Message = "Invalid data"
+            });
+        }
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (userId == null)
+        {
+            return Unauthorized(new AuthResponseDto
+            {
+                Success = false,
+                Message = "User not found"
+            });
+        }
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user == null)
+        {
+            return NotFound(new AuthResponseDto
+            {
+                Success = false,
+                Message = "User not found"
+            });
+        }
+        var result = await _userManager.ChangePasswordAsync(user,
+        model.CurrentPassword, model.NewPassword);
+        if (!result.Succeeded)
+        {
+            var errors = string.Join(", ", result.Errors.Select(e => e.Description));
+            return BadRequest(new AuthResponseDto
+            {
+                Success = false,
+                Message = $"Password change failed: {errors}"
+            });
+        }
+        _logger.LogInformation("User {Email} changed password", user.Email);
+        return Ok(new AuthResponseDto
+        {
+            Success = true,
+            Message = "Password changed successfully"
         });
     }
 
