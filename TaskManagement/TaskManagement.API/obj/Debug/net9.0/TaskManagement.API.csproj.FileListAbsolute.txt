@@ -1,0 +1,9 @@
+C:\Users\haivu\OneDrive - Sheridan College\Desktop\computer\sem5\Enterprise Software Systems\assign4\TaskManagement\TaskManagement.API\obj\Debug\net9.0\TaskManagement.API.csproj.AssemblyReference.cache
+C:\Users\haivu\OneDrive - Sheridan College\Desktop\computer\sem5\Enterprise Software Systems\assign4\TaskManagement\TaskManagement.API\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\haivu\OneDrive - Sheridan College\Desktop\computer\sem5\Enterprise Software Systems\assign4\TaskManagement\TaskManagement.API\obj\Debug\net9.0\TaskManagement.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\haivu\OneDrive - Sheridan College\Desktop\computer\sem5\Enterprise Software Systems\assign4\TaskManagement\TaskManagement.API\obj\Debug\net9.0\TaskManagement.API.AssemblyInfoInputs.cache
+C:\Users\haivu\OneDrive - Sheridan College\Desktop\computer\sem5\Enterprise Software Systems\assign4\TaskManagement\TaskManagement.API\obj\Debug\net9.0\TaskManagement.API.AssemblyInfo.cs
+C:\Users\haivu\OneDrive - Sheridan College\Desktop\computer\sem5\Enterprise Software Systems\assign4\TaskManagement\TaskManagement.API\obj\Debug\net9.0\TaskManagement.API.csproj.CoreCompileInputs.cache
+C:\Users\haivu\OneDrive - Sheridan College\Desktop\computer\sem5\Enterprise Software Systems\assign4\TaskManagement\TaskManagement.API\obj\Debug\net9.0\TaskManagement.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\haivu\OneDrive - Sheridan College\Desktop\computer\sem5\Enterprise Software Systems\assign4\TaskManagement\TaskManagement.API\obj\Debug\net9.0\TaskManagement.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\haivu\OneDrive - Sheridan College\Desktop\computer\sem5\Enterprise Software Systems\assign4\TaskManagement\TaskManagement.API\obj\Debug\net9.0\TaskManagement.API.sourcelink.json
