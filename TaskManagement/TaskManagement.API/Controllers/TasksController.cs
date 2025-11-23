@@ -106,5 +106,17 @@ JsonPatchDocument<TaskItem> patchDoc)
             return Ok(task);
         }
 
+        // DELETE: api/tasks/{id}
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteTask(int id)
+        {
+            var deleted = await _repository.DeleteAsync(id);
+            if (!deleted)
+            {
+                return NotFound(new { message = $"Task with ID {id} not found" });
+            }
+            return NoContent();
+        }
+
     }
 }
