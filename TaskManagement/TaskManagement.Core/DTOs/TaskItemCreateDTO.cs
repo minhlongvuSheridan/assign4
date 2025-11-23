@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TaskManagement.Core.DTOs
 {
-    public class TaskItemCreateDTO
+    public class TaskItemCreateDto
     {
         [Required(ErrorMessage = "Title is required")]
         [StringLength(200, ErrorMessage = "Title cannot exceed 200 characters")]

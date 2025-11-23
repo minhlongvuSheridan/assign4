@@ -31,8 +31,9 @@ namespace TaskManagement.API.Controllers
             }
             return Ok(task);
         }
+        // POST: api/tasks
         [HttpPost]
-        public async Task<ActionResult<TaskItem>> CreateTask([FromBody] TaskItemCreateDTO
+        public async Task<ActionResult<TaskItem>> CreateTask([FromBody] TaskItemCreateDto
 taskDto)
         {
             if (!ModelState.IsValid)
@@ -54,9 +55,10 @@ taskDto)
             createdTask
             );
         }
+        // PUT: api/tasks/{id}
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateTask(int id, [FromBody] TaskItemUpdateDTO
+        public async Task<IActionResult> UpdateTask(int id, [FromBody] TaskItemUpdateDto
 taskDto)
         {
             if (!ModelState.IsValid)
@@ -80,5 +82,29 @@ taskDto)
             var updatedTask = await _repository.UpdateAsync(task);
             return Ok(updatedTask);
         }
+        // PATCH: api/tasks/{id}
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> PatchTask(int id, [FromBody]
+JsonPatchDocument<TaskItem> patchDoc)
+        {
+            if (patchDoc == null)
+            {
+                return BadRequest(new { message = "Patch document is null" });
+            }
+            var task = await _repository.GetByIdAsync(id);
+            if (task == null)
+            {
+                return NotFound(new { message = $"Task with ID {id} not found" });
+            }
+            patchDoc.ApplyTo(task, ModelState);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            task.UpdatedAt = DateTime.UtcNow;
+            await _repository.UpdateAsync(task);
+            return Ok(task);
+        }
+
     }
 }
