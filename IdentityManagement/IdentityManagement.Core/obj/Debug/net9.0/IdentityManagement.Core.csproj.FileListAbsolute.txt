@@ -1,0 +1,13 @@
+C:\Users\haivu\OneDrive - Sheridan College\Desktop\computer\sem5\Enterprise Software Systems\assign4\IdentityManagement\IdentityManagement.Core\bin\Debug\net9.0\IdentityManagement.Core.deps.json
+C:\Users\haivu\OneDrive - Sheridan College\Desktop\computer\sem5\Enterprise Software Systems\assign4\IdentityManagement\IdentityManagement.Core\bin\Debug\net9.0\IdentityManagement.Core.dll
+C:\Users\haivu\OneDrive - Sheridan College\Desktop\computer\sem5\Enterprise Software Systems\assign4\IdentityManagement\IdentityManagement.Core\bin\Debug\net9.0\IdentityManagement.Core.pdb
+C:\Users\haivu\OneDrive - Sheridan College\Desktop\computer\sem5\Enterprise Software Systems\assign4\IdentityManagement\IdentityManagement.Core\obj\Debug\net9.0\IdentityManagement.Core.csproj.AssemblyReference.cache
+C:\Users\haivu\OneDrive - Sheridan College\Desktop\computer\sem5\Enterprise Software Systems\assign4\IdentityManagement\IdentityManagement.Core\obj\Debug\net9.0\IdentityManagement.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\haivu\OneDrive - Sheridan College\Desktop\computer\sem5\Enterprise Software Systems\assign4\IdentityManagement\IdentityManagement.Core\obj\Debug\net9.0\IdentityManagement.Core.AssemblyInfoInputs.cache
+C:\Users\haivu\OneDrive - Sheridan College\Desktop\computer\sem5\Enterprise Software Systems\assign4\IdentityManagement\IdentityManagement.Core\obj\Debug\net9.0\IdentityManagement.Core.AssemblyInfo.cs
+C:\Users\haivu\OneDrive - Sheridan College\Desktop\computer\sem5\Enterprise Software Systems\assign4\IdentityManagement\IdentityManagement.Core\obj\Debug\net9.0\IdentityManagement.Core.csproj.CoreCompileInputs.cache
+C:\Users\haivu\OneDrive - Sheridan College\Desktop\computer\sem5\Enterprise Software Systems\assign4\IdentityManagement\IdentityManagement.Core\obj\Debug\net9.0\IdentityManagement.Core.sourcelink.json
+C:\Users\haivu\OneDrive - Sheridan College\Desktop\computer\sem5\Enterprise Software Systems\assign4\IdentityManagement\IdentityManagement.Core\obj\Debug\net9.0\IdentityManagement.Core.dll
+C:\Users\haivu\OneDrive - Sheridan College\Desktop\computer\sem5\Enterprise Software Systems\assign4\IdentityManagement\IdentityManagement.Core\obj\Debug\net9.0\refint\IdentityManagement.Core.dll
+C:\Users\haivu\OneDrive - Sheridan College\Desktop\computer\sem5\Enterprise Software Systems\assign4\IdentityManagement\IdentityManagement.Core\obj\Debug\net9.0\IdentityManagement.Core.pdb
+C:\Users\haivu\OneDrive - Sheridan College\Desktop\computer\sem5\Enterprise Software Systems\assign4\IdentityManagement\IdentityManagement.Core\obj\Debug\net9.0\ref\IdentityManagement.Core.dll
