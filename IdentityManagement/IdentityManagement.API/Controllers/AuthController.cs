@@ -249,5 +249,46 @@ ChangePasswordDto model)
         });
     }
 
+    [Authorize]
+    [HttpDelete("delete-account")]
+    public async Task<ActionResult<AuthResponseDto>> DeleteAccount()
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (userId == null)
+        {
+            return Unauthorized(new AuthResponseDto
+            {
+                Success = false,
+                Message = "User not authenticated"
+            });
+        }
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user == null)
+        {
+            return NotFound(new AuthResponseDto
+            {
+                Success = false,
+                Message = "User not found"
+            });
+        }
+        var result = await _userManager.DeleteAsync(user);
+        if (!result.Succeeded)
+        {
+            var errors = string.Join(", ", result.Errors.Select(e => e.Description));
+            return BadRequest(new AuthResponseDto
+            {
+                Success = false,
+                Message = $"Account deletion failed: {errors}"
+
+            });
+        }
+        _logger.LogInformation("User {Email} deleted their account", user.Email);
+        return Ok(new AuthResponseDto
+        {
+            Success = true,
+            Message = "Account deleted successfully"
+        });
+    }
+
 
 }
