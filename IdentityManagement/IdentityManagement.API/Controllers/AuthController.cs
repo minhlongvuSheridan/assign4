@@ -217,5 +217,37 @@ ChangePasswordDto model)
             Message = "Password changed successfully"
         });
     }
+    [Authorize]
+    [HttpGet("me")]
+    public async Task<ActionResult<AuthResponseDto>> GetCurrentUser()
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (userId == null)
+        {
+            return Unauthorized(new AuthResponseDto
+            {
+                Success = false,
+                Message = "User not authenticated"
+            });
+        }
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user == null)
+        {
+            return NotFound(new AuthResponseDto
+            {
+                Success = false,
+                Message = "User not found"
+            });
+        }
+        return Ok(new AuthResponseDto
+        {
+            Success = true,
+            Message = "User information retrieved",
+            UserId = user.Id,
+            Email = user.Email,
+            UserName = user.UserName
+        });
+    }
+
 
 }
