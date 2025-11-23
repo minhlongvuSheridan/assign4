@@ -6,7 +6,7 @@ using TaskManagement.Core.Models;
 
 namespace TaskManagement.API.Controllers
 {
-    public class TasksController: ControllerBase
+    public class TasksController : ControllerBase
     {
         private readonly ITaskRepository _repository;
         public TasksController(ITaskRepository repository)
@@ -30,6 +30,55 @@ namespace TaskManagement.API.Controllers
                 return NotFound(new { message = $"Task with ID {id} not found" });
             }
             return Ok(task);
+        }
+        [HttpPost]
+        public async Task<ActionResult<TaskItem>> CreateTask([FromBody] TaskItemCreateDTO
+taskDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var task = new TaskItem
+            {
+                Title = taskDto.Title,
+                Description = taskDto.Description,
+                Status = taskDto.Status,
+                DueDate = taskDto.DueDate
+            };
+
+            var createdTask = await _repository.CreateAsync(task);
+            return CreatedAtAction(
+            nameof(GetTask),
+            new { id = createdTask.Id },
+            createdTask
+            );
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateTask(int id, [FromBody] TaskItemUpdateDTO
+taskDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var exists = await _repository.ExistsAsync(id);
+            if (!exists)
+            {
+                return NotFound(new { message = $"Task with ID {id} not found" });
+            }
+            var task = new TaskItem
+            {
+                Id = id,
+                Title = taskDto.Title,
+                Description = taskDto.Description,
+                Status = taskDto.Status,
+                DueDate = taskDto.DueDate
+            };
+
+            var updatedTask = await _repository.UpdateAsync(task);
+            return Ok(updatedTask);
         }
     }
 }
