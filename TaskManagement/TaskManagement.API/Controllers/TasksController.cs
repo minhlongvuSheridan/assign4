@@ -1,11 +1,15 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using TaskManagement.Core.DTOs;
 using TaskManagement.Core.Interfaces;
 using TaskManagement.Core.Models;
 
-namespace TaskManagement.API.Controllers
-{
+namespace TaskManagement.API.Controllers;
+
+    [ApiController]
+[Route("api/[controller]")]
+[Authorize]
     public class TasksController : ControllerBase
     {
         private readonly ITaskRepository _repository;
@@ -119,4 +123,4 @@ JsonPatchDocument<TaskItem> patchDoc)
         }
 
     }
-}
+
